@@ -1,3 +1,4 @@
+/*
 pipeline{
 
     agent any
@@ -17,7 +18,8 @@ pipeline{
 
         stage("SCM checkout"){
             steps{
-                checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/nandha1/cicd-build-push.git']])
+                checkout scmGit(branches: [[name: '*//*
+main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/nandha1/cicd-build-push.git']])
             }
         }
 
@@ -63,3 +65,4 @@ pipeline{
         }
     }
 }
+ */
