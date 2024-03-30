@@ -17,7 +17,7 @@ pipeline{
 
         stage("SCM checkout"){
             steps{
-                checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/javatechie-devops/jenkins-ci-cd.git']])
+                checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/nandha1/cicd-build-push.git']])
             }
         }
 
@@ -40,7 +40,7 @@ pipeline{
         stage("Deploy Image to Hub"){
             steps{
                 withCredentials([string(credentialsId: 'dp', variable: 'dp')]) {
-                 sh 'docker login -u javatechie4u -p ${dp}'
+                 sh 'docker login -u nandha572 -p ${dp}'
                  sh 'docker push ${IMAGE_NAME}:${IMAGE_TAG}'
                 }
             }
@@ -58,7 +58,7 @@ pipeline{
         <p>Build Number: ${BUILD_NUMBER}</p>
         <p>Check the <a href="${BUILD_URL}">console output</a>.</p>
     </body>
-</html>''', mimeType: 'text/html', replyTo: 'javatechie.learning@gmail.com', subject: 'Pipeline Status : ${BUILD_NUMBER}', to: 'javatechie.learning@gmail.com'
+</html>''', mimeType: 'text/html', replyTo: 'nandha572@gmail.com', subject: 'Pipeline Status : ${BUILD_NUMBER}', to: 'nandha572@gmail.com'
 
         }
     }
