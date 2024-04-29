@@ -6,11 +6,11 @@ pipeline{
     }
 
     environment{
-           APP_NAME = "spring-docker-cicd"
-           RELEASE_NO= "1.0.0"
-           DOCKER_USER= "nandha572"
-           IMAGE_NAME= "%DOCKER_USER%"+"/"+"%APP_NAME%"
-           IMAGE_TAG= "%RELEASE_NO%-%BUILD_NUMBER%"
+           app_name = "spring-docker-cicd"
+           release_no= "1.0.0"
+           docker_user= "nandha572"
+           image_name= "%docker_user%"+"/"+"%app_name%"
+           image_tag= "%release_no%-%BUILD_NUMBER%"
     }
 
     stages{
@@ -44,7 +44,7 @@ pipeline{
                 script{
                   withCredentials([string(credentialsId: 'dp', variable: 'dp')]) {
                         bat 'docker login -u nandha572 -p %dp%'
-                        bat 'docker push %IMAGE_NAME%:%IMAGE_TAG%'
+                        bat 'docker push %image_name%:%image_tag%'
                    }
                 }
             }
