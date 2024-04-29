@@ -50,10 +50,11 @@ pipeline{
                 }
             }
         }
+    }
 
 post{
         always{
-            emailext attachLog: true, 
+            emailext attachLog: true,
             body: ''' <html>
     <body>
         <p>Build Status: ${BUILD_STATUS}</p>
@@ -64,8 +65,4 @@ post{
 
         }
     }
-
-    }
-
-
 }
