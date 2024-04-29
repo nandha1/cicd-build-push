@@ -33,7 +33,7 @@ pipeline{
       stage('Build Image'){
             steps{
                 script{
-                    bat 'docker build -t nandha572/spring-cicd:2.0 .'
+                    bat 'docker build -t nandha572/%image_name%:%image_tag% .'
 
                 }
             }
