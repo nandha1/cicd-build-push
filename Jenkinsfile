@@ -44,8 +44,7 @@ pipeline{
                 script{
                   withCredentials([string(credentialsId: 'dp', variable: 'dp')]) {
                         bat 'docker login -u nandha572 -p %dp%'
-                        bat 'docker push  ${IMAGE_NAME}:${IMAGE_TAG}'
-    
+                        bat 'docker push %IMAGE_NAME%:%IMAGE_TAG%'
                    }
                 }
             }
